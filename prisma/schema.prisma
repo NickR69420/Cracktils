@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Command {
+  name    String  @id
+  enabled Boolean @default(true)
+}
+
+model Module {
+  name    String  @id
+  enabled Boolean @default(true)
+}
+
+model Guild {
+  id     String @id
+  prefix String @default(">")
+
+  enableFilter Boolean  @default(false)
+  filter       String[]
+}
+
+model gameData {
+  id     Int    @id @default(autoincrement())
+  userId String
+  game   String
+  wins   Int    @default(0)
+  losses Int    @default(0)
+  ties   Int    @default(0)
+  total  Int    @default(0)
+}
+
+model Reminder {
+  id        String   @id
+  guildId   String
+  channelId String
+  userId    String
+  reason    String?
+  time      String
+  expires   DateTime
+}
+
+model Giveaway {
+  id        String   @id
+  prize     String
+  channelId String
+  guildId   String
+  ended     Boolean  @default(false)
+  endAt     DateTime
+  winners   Int
+  hostedBy  String
+  users     String[]
+}

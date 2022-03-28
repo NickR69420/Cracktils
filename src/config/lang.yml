@@ -1,0 +1,439 @@
+GlobalErrors:
+    NoPerms:
+        Title: "No Permission"
+        Description: "You do not have permission to run this command."
+    InvalidArgs:
+        Title: "Invalid Arguments"
+        Description: "Usage: ``USAGE``"
+    cmdErr: "An error has occured while running this command."
+    disabledCommand: "This command is disabled."
+    Cooldown:
+        Title: "Cooldown"
+        Description: "Please wait TIME before running this command!"
+    InvalidRole: "Please mention a valid role or provide a valid role ID or name."
+
+GeneralModule:
+    Commands:
+        Ping:
+            awaitMsg:
+                Title: "Pinging..."
+            Embed:
+                Fields: ["API Latency", "Bot Latency"]
+        Help:
+            Author: "Help | BOT"
+            Description: "Select a category to view their commands!"
+            Footer: "Run PREFIXhelp <command> for more information on a command."
+            Menu: "Select a category!"
+            pageTitle: "DIR Commands"
+            Emojis: ["<:greyconnect:896048802023211080>", "895685174161981500", "🎮", "🖥️", "🛠️", "<:test1:895786349758644254>", "🎉"]
+            Syntax: "Usage Syntax: <> = required; [] = optional"
+        Reminder:
+            InvalidArgs: "Please provide a valid action. You may choose from ACTIONS"
+            Set:
+                InvalidDuration: "Please provide a valid duration. Ex: 1m, 20s, 1d, 5h, etc."
+                ReminderSet:
+                    Title: "<:clockEmoji:934328688974102538> Reminder Set!"
+                    Descriptions: ["You will be reminded to REASON in **TIME.**", "Your reminder will go off in **TIME.**"]
+                    Footer: "ID: id"
+            Remove:
+                InvalidID: "Please provide a valid reminder ID to remove."
+                NoReminderFound: "Found no reminder with the provided ID."
+                Removed: "Successfully removed your reminder."
+            List:
+                Title: "<:clockEmoji:934328688974102538> Reminders"
+                Descriptions: ["Viewing **NO** reminder(s).", "You have no reminders set."]
+                Fields: ["**ID:** `id`", "**Reason:** REASON\n**Goes off:** TIME"]
+            Reminder:
+                Title: "<:clockEmoji:934328688974102538> Reminder"
+                Descriptions: ["**Hey! Don't forget to:** REASON", "**It has been TIME.**"]
+        Report:
+            NotSetup: "The report system is not setup."
+            ReportBot: "You can not report a bot."
+            ReportSelf: "You can not report yourself."
+            Report:
+                Title: "Report"
+                Fields: ["Reported User", "Reported By", "Reason"]
+            Reported:
+                Title: "💼 User Reported"
+                Description: "Thank you for reporting this user. A staff member will take a look into this report as soon as possible."
+        Suggest:
+            NotSetup: "The suggestion system is not setup."
+            Sent:
+                Title: "Suggestion Sent"
+                Description: "<:SuccessEmoji:895265127299960832> Your suggestion has successfully been sent."
+            Pending:
+                Footer: "ID: id | Status: Pending"
+        RoleInfo:
+            Fields: ["Name", "Position", "Hex Color", "Members - [AMT]", "Created"]
+            Footer: "ID: id"
+        ServerInfo:
+            Fields:
+                [
+                    "Owner",
+                    "Created",
+                    "Members - [AMT]",
+                    "**Humans:** HUMANS\n**Bots:** BOTS",
+                    "Channels - [AMT]",
+                    "**Categories:** CATS\n**Voice:** VOICE\n**Text:** TEXT",
+                    "Roles - [AMT]",
+                    "Emojis - [AMT]",
+                ]
+        MemberCount:
+            Title: "Members"
+        UserInfo:
+            Fields: ["Display Name", "Badges", "Roles - [AMT]", "Created", "Joined"]
+            Footer: "ID: id"
+            Badges:
+                [
+                    "<:discord_hypesquad:935879765196435476>",
+                    "<:discord_bravery:935880198287654932>",
+                    "<:discord_brillance:935879918951219210>",
+                    "<:discord_balance:935880293955567632>",
+                    "<:discord_earlysupporter:935880426063532084>",
+                    "<:botTag:935901336296357919>",
+                ]
+        Status:
+            API: "https://api.mcsrvstat.us/2/mc.crackpixel.net"
+            Error: "Something went wrong..."
+            Author: "Crackpixel Network"
+            Fields: ["Status", "Players", "MOTD"]
+
+FunModule:
+    Commands:
+        MagicBall:
+            API: "https://8ball.delegator.com/magic/JSON/DATA"
+            Title: "🎱 8 Ball"
+            Fields: ["Your Question", "The Magic 8 Ball Says.."]
+        CoinFlip:
+            HeadIcon: "https://cdn.discordapp.com/attachments/637105382631669760/675097745295540244/heads.png"
+            TailIcon: "https://cdn.discordapp.com/attachments/637105382631669760/675097748747452431/tails.png"
+            Title: ":coin: Coin Flipped"
+            Description: "The coin was flipped and landed on **RESULTs**"
+            Results: ["Result: You won!", "Result: You lost!"]
+            Footer: "Flipped By: USER"
+        Connect4:
+            PlayWithBotOrSelf: "You can not play Connect 4 with yourself or a bot!"
+            ColumnFull: "That column is full! Please select another column."
+            Invite:
+                Title: "Connect 4 Invitation"
+                Description: "USER has invited you to play Connect 4! Do you agree to join? You have 60 seconds to accept the invite."
+            InviteCanceled:
+                Title: "Connect 4 game Cancelled"
+                Descriptions: ["USER did not agree to play Connect 4!", "USER did not accept your Connect 4 invitation in time!"]
+            GameBoard:
+                Title: "Connect 4"
+                Description: "🔴 PLAYER-1 **vs** 🟡 PLAYER-2\n\nBOARD\n\nTurn: TURN"
+            GameBoardOver:
+                Title: "Connect 4 | GAME OVER"
+                Description: "🔴 PLAYER-1 **vs** 🟡 PLAYER-2\n\nBOARD\n\n**Winner:** WINNER"
+                GameOverWin: "🎉🎉 GG! WINNER won the Connect 4 game against LOSER!"
+                GameOverTie: "GG! It was a tie between PLAYER-1 and PLAYER-2!"
+            Emojis: ["895265127299960832", "895265014619987998"]
+        Math:
+            Title: "➗ Math"
+            Fields: ["Equation", "Answer"]
+            Error: "An error occured while evaluating the equation."
+        RockPaperScissors:
+            Fields: ["USER", "VS", "⚡", "Bot", "Result:"]
+        TicTacToe:
+            InvalidUser: "You can not play Tic-Tac-Toe with yourself or a bot!"
+            SpaceTaken: "That space is already taken!"
+            Emojis: ["895265127299960832", "895265014619987998"]
+            Invite:
+                Title: "Tic-Tac-Toe Invitation"
+                Description: "USER has invited you to play Tic-Tac-Toe! Do you agree to join? You have 60 seconds to accept the invite."
+            InviteCanceled:
+                Title: "Tic-Tac-Toe game Canceled"
+                Descriptions: ["USER did not agree to play Tic-Tac-Toe!", "USER did not accept your Tic-Tac-Toe invitation in time!"]
+            GameBoard:
+                Title: "Tic-Tac-Toe"
+                Description: "❌ PLAYER-1 **vs** ⭕ PLAYER-2\n\nTurn: TURN"
+            GameBoardOver:
+                Title: "Tic-Tac-Toe | GAME OVER"
+                Description: "❌ PLAYER-1 **vs** ⭕ PLAYER-2\n\n**Winner:** WINNER"
+                GameOverWin: "🎉🎉 GG! WINNER won the Tic-Tac-Toe game against LOSER!"
+                GameOverTie: "GG! It was a tie between PLAYER-1 and PLAYER-2!"
+        RollDice:
+            Sides:
+                [
+                    "https://cdn.discordapp.com/attachments/637105382631669760/675091831746199552/dice-1.png",
+                    "https://cdn.discordapp.com/attachments/637105382631669760/675091832966873088/dice-2.png",
+                    "https://cdn.discordapp.com/attachments/637105382631669760/675091834485342238/dice-3.png",
+                    "https://cdn.discordapp.com/attachments/637105382631669760/675091835575861248/dice-4.png",
+                    "https://cdn.discordapp.com/attachments/637105382631669760/675091837228285982/dice-5.png",
+                    "https://cdn.discordapp.com/attachments/637105382631669760/675091838419337256/dice-6.png",
+                ]
+            RollingDice: "*Rolling dice...*"
+            Title: "🎲 Dice Rolled"
+            Description: "The dice was rolled and landed on **RESULT**"
+        GameStats:
+            Title: "🎮 Game Stats"
+            Fields:
+                [
+                    "Connect 4 Stats",
+                    "> **Wins:** WINS\n> **Losses:** LOSSES\n> **Ties:** TIES\n> **Games Played:** TOTAL",
+                    "Tic-Tac-Toe Stats",
+                    "> **Wins:** WINS\n> **Losses:** LOSSES\n> **Ties:** TIES\n> **Games Played:** TOTAL",
+                ]
+
+AdminModule:
+    Commands:
+        Announce:
+            Questions:
+                [
+                    "What is the announcement's title?",
+                    "What is the announcement's description?",
+                    "Where would you like to send the announcement? \n\nRespond with 'here' to post it in this channel, 'default' to post in the default announcements channel, or respond with '#channel-name' to post it in another channel.",
+                    "Who would you like to ping? Respond with 'no one', 'everyone', 'here', @role or a role's name. If you wish to ping multiple roles, seperate each role with a comma.",
+                    "Would you like a thumbnail image? If you do, please respond with the image link. If not, please say 'no'",
+                ]
+            AnnouncementSetup: "Announcement Setup: POS"
+            SetupCanceled: ":x: Announcement Canceled"
+            Posted:
+                Title: "Announcement Posted"
+                Description: "<:SuccessEmoji:895265127299960832> The announcement has successfully been sent."
+            InvalidChannel:
+                Title: "Invalid Channel"
+                Description: "Please mention a channel"
+            Announcement:
+                Title: "TITLE"
+                Footer: "Announcement By: USER"
+        Createrole:
+            Errors:
+                InvalidHex: "Response must be in hexadecimal form"
+                InvalidNumber: "Response must be a calculated permission number"
+                RoleError: "The role could not be created."
+            RoleSetup:
+                Title: "Role Setup POS"
+                Questions:
+                    [
+                        "What do you want the role to be named?",
+                        "What do you want the role's color to be? \n\nResponse with a hex color",
+                        "What do you want the role's permissions to be ? \n\nRespond with the calculated permissions number (Respond with 0 for no special permissions). Use a site like this to help: https://discordapi.com/permissions.html",
+                    ]
+            RoleCreated:
+                Title: "Role Created"
+                Description: "The ROLE role has been created with the following permissions: PERMS"
+        Deleterole:
+            HigherRole: "You cannot delete a role higher than mine/yours!"
+            DeleteError: "I could not delete that role."
+            Confirmation: "Are you sure you would like to delete this role?"
+            Deleted: "Successfully deleted the role."
+            Canceled: ":x: Role Deletion Canceled"
+        Giverole:
+            isBot: "You cannot give roles to a bot."
+            HigherRole: ["You do not have permission to give roles above your highest role!", "I can only give roles below my highest role!"]
+            RoleAdded:
+                Title: "Role Added"
+                Description: "ROLE has been given to TARGET."
+        Message:
+            CouldntSend: "An error has occured while trying to send the user(s) a message. They probably have their DMs locked."
+            Sent: "<:SuccessEmoji:895265127299960832> Message sent."
+        Say:
+            CouldntSend: "I was unable to send the message."
+            Sent: "Sent!"
+        SuggestReply:
+            NotSetup: "The suggestion system is either not setup or disabled."
+            InvalidID: "Found no suggestion with the provided ID."
+            InvalidStatus: "Please provided a valid status to set. You may choose from STATUSES"
+            AlreadyReplied: "That suggestion has already been replied to."
+            Replied: "<:SuccessEmoji:895265127299960832> Successfully replied to the suggestion."
+            Reply:
+                NotAllowed: "Only Junior Admins & above can respond to suggestions."
+                Description: "CONTENT\n\n**ACTION by USER**\nREPLY"
+                Replies:
+                    accepted: "This suggestion will hopefully implemented in the future."
+                    denied: "This is likely not feasible."
+                    implemented: "This suggestion will be or is already implemented."
+        Takerole:
+            TakeFromBot: "You cannot take a role from a bot"
+            HigherRole: ["You do not have permission to take roles above your highest role!", "I can only take roles below my highest role!"]
+            RoleRemoved:
+                Title: "Role Removed"
+                Description: "ROLE has been removed from TARGET."
+        Update:
+            Questions:
+                - "What is the update's description?"
+                - "Where would you like to send the update? \n\nRespond with 'here' to post it in this channel, 'default' to post in the default announcements channel, or respond with '#channel-name' to post it in another channel."
+                - "Who would you like to ping? Respond with 'no one', 'everyone', @role or a role's name. If you wish to ping multiple roles, seperate each role with a comma."
+                - "Would you like a thumbnail image? If you do, please respond with the image link. If not, please say 'no'"
+            UpdateSetup: "Update Setup: POS"
+            SetupCanceled: ":x: Update Canceled"
+            Posted:
+                Title: "Update Posted"
+                Description: "<:SuccessEmoji:895265127299960832> The update has succesfully been posted"
+            InvalidChannel:
+                Title: "Invalid Channel"
+                Description: "Please mention a channel"
+            Update:
+                Title: "Update"
+                Footer: "Posted By: USER"
+        Poll:
+            MaxChoices: "You can only have a max of 10 choices"
+            Poll:
+                Description: "1️⃣ Yes\n\n2️⃣ No"
+                Footer: "Poll by: USER"
+            Posted:
+                Title: "Poll Posted"
+                Description: "<:SuccessEmoji:895265127299960832> The poll has successfully been posted."
+        Prefix:
+            View: "My current prefix is `PREFIX`"
+            Set: "Successfully set the prefix to `PREFIX`"
+
+FilterSystem:
+    Commands:
+        Filter:
+            InvalidArgs: "Invalid setting! You may choose from SETTINGS"
+            NoWord: ["filter add <word>", "filter remove <word>"]
+            Disabled: ["Disabled the filter system.", "The filter system is already disabled."]
+            Enabled: ["Enabled the filter system.", "The filter system is already enabled."]
+            Add:
+                WordAlreadyInFilter: ["WORD is already in the filter", "WORDS are already in the filter"]
+                Title: "\\➕ Filter System | Words Added"
+                Description: ["The word WORD has been added to the filter.", "The words WORDS have been added to the filter."]
+            Remove:
+                InvalidWord: "**Invalid word(s) provided!** Blacklisted words are: WORDS"
+                Title: "\\➖ Filter System | Words Removed"
+                Description: ["The word WORD has been removed from the filter.", "The words WORDS have been removed from the filter."]
+            List: "🤬 Filter System | Blacklisted Words"
+    FilterResponse: "USER You cannot use that word here."
+
+ManagementModule:
+    Commands:
+        Eval:
+            Author: "Evaluation"
+            Fields: [":inbox_tray:  Input", ":outbox_tray:  Output", ":x: Error"]
+            Footer: "Type: TYPE"
+        Command:
+            InvalidCommand: "Please provide a valid command."
+            CantBeModified: "The status of this command cannot be modified."
+            List:
+                Fields: ["Command", "Status"]
+            EnabledDisabled:
+                Title: "Command STATUS"
+                Description: "The `COMMAND` command has been **STATUS**."
+            Emojis: ["<:SuccessEmoji:895265127299960832>", "<:ErrorEmoji:895265014619987998>"]
+        Module:
+            InvalidModule: "Please provide a valid module."
+            CantBeModified: "The status of this module cannot be modified."
+            List:
+                Fields: ["Module", "Status"]
+            EnabledDisabled:
+                Title: "Module STATUS"
+                Description: "The `MODULE` module has been **STATUS**."
+            Emojis: ["<:SuccessEmoji:895265127299960832>", "<:ErrorEmoji:895265014619987998>"]
+        Reload:
+            InvalidAction: "Invalid action! Please choose from these actions: ACTIONS"
+            Commands: ["Reloading commands...", "All commands have been reloaded!"]
+            SlashCommands: ["Reloading slash commands... (this will take time!)", "All slash commands have been reloaded!"]
+            Events: ["Reloading events...", "All events have been reloaded!"]
+            All: ["Reloading bot... (this will take time!)", "The bot has been successfully reloaded!"]
+
+GiveawaySystem:
+    WinnerEmbed:
+        Content: "Congratulations to WINNERS :tada:"
+        Description: "Congratulations to WINNERS for winning the [PRIZE](URL)!\n\nHosted by: HOST\nWant to reroll? Run `COMMAND`"
+    ReRolled:
+        Content: "Giveaway rerolled! Congratulations to the new winner(s) WINNERS :tada:"
+    Ended:
+        Content: ":confetti_ball: **GIVEAWAY ENDED** :confetti_ball:"
+        Description: "**Winners:** WINNERS"
+        Footer: "Ended at"
+    Commands:
+        Gcreate:
+            InvalidTime: "Please provide a valid duration. Ex: 1m, 20s, 1d, 5h, etc. **Please try again.**"
+            InvalidWinners: "Please provide a valid number of winners."
+            InvalidChannel: "Please provide/mention a valid channel. **Please try again.**"
+            Setup:
+                Questions:
+                    [
+                        "How long would you like the giveaway to be?\n\nType `cancel` to stop this process",
+                        "What do you want to giveaway?\n\nType `cancel` to stop this process",
+                        "Please explain the item you are giving away.\n\nType `cancel` to stop this process",
+                        "How many winners will there be?\n\nType `cancel` to stop this process",
+                        "What channel do you want this giveaway to be hosted in? \n\nRespond with 'here' to host it in this channel, or respond with '#channel-name' to host it in another channel.\n\nType `cancel` to stop this process",
+                        "Would you like a thumbnail image? If you do, please respond with the image link. If not, please say 'no'\n\nType `cancel` to stop this process",
+                    ]
+                Title: "Giveaway Setup: POS"
+            Giveaway:
+                Description: "DESC\n\nReact with EMOJI to enter the giveaway!\n**Hosted by:** HOST\n**Winners:** WINNERS\n**Ending:** TIMER"
+                Footer: "Ends at"
+            Created: "<:SuccessEmoji:895265127299960832> Successfully created the giveaway."
+            Canceled: "<:ErrorEmoji:895265014619987998> The giveaway has been cancelled."
+        Gdelete:
+            InvalidGiveaway: "No giveaway found with the provided ID."
+            Deleted: "The giveaway has been deleted."
+        Greroll:
+            InvalidGiveaway: "No giveaway found with the provided ID."
+            NoGiveaways: "There are no giveaways to be re-rolled."
+            GiveawayHasntEnded: "That giveaway has not ended yet!"
+        Gend:
+            InvalidGiveaway: "No giveaway found with the provided ID."
+            AlreadyEnded: "That giveaway has already ended."
+        NoOneEntered: "No one has entered the giveaway."
+    GiveawayJoined:
+        Author: "Giveaway Joined!"
+        Description: "Your entry for the giveaway of [PRIZE](URL) has been confirmed."
+    GiveawayLeft:
+        Author: "Giveaway Left!"
+        Description: "Your entry for the giveaway of [PRIZE](URL) has been cancelled."
+
+LogSystem:
+    MessageDeleted:
+        Title: "Message Deleted"
+        Fields: ["Author", "Channel", "Message", "Deleted by", "Attachments"]
+    MessageBulkDeleted:
+        Title: "Messages Bulk Deleted"
+        Fields: ["Channel", "Messages", "Deleted by"]
+    MessageEdited:
+        Title: "Message Edited"
+        Description: "[Jump to Message](URL)"
+        Fields: ["Author", "Channel", "Old Message", "New Message", "Attachments"]
+    ChannelCreated:
+        Title: "Channel Created"
+        Fields: ["Channel", "Type"]
+    ChannelDeleted:
+        Title: "Channel Deleted"
+        Fields: ["Channel", "Type"]
+    ChannelPinsUpdated:
+        Title: "Pins Updated"
+        Fields: ["Channel"]
+    ChannelUpdated:
+        Title: "Channel Updated"
+        NameUpdated:
+            Fields: ["Channel", "Old Name", "New Name"]
+        PermsUpdated:
+            Fields: ["Channel", "Operation", "Permissions Updated"]
+        CategoryUpdated:
+            Fields: ["Category", "Old Category", "New Category"]
+        TopicUpdated:
+            Fields: ["Channel", "Old Topic", "New Topic"]
+    MemberRoleRemoved:
+        Title: "Role Removed"
+        Fields: ["Member", "Role"]
+    MemberRoleAdded:
+        Title: "Role Added"
+        Fields: ["Member", "Role"]
+    DisplayNameUpdated:
+        Title: "Display Name Updated"
+        Fields: ["Member", "Old Display Name", "New Display Name"]
+    EmojiCreated:
+        Title: "Emoji Created"
+        Fields: ["Emoji", "Name", "ID", "Animated"]
+    EmojiDeleted:
+        Title: "Emoji Deleted"
+        Fields: ["Name", "ID", "Animated", "Emoji"]
+    EmojiUpdated:
+        Title: "Emoji Updated"
+        Fields: ["Emoji", "Old Name", "New Name"]
+    RoleCreated:
+        Title: "Role Created"
+        Fields: ["Role"]
+    RoleDeleted:
+        Title: "Role Deleted"
+        Fields: ["Role"]
+    RoleUpdated:
+        Title: "Role Updated"
+        Fields: ["Role", "Name", "Color", "Hoisted", "Mentionable", "Permissions Changed"]
+        Previously: "**Previously:** "
+        Currently: "**Currently:** "

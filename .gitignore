@@ -1,0 +1,9 @@
+# Things to ignore
+node_modules
+package-lock.json
+dist
+config.yml
+.env
+
+# my shit
+.vscode

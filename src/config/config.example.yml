@@ -1,0 +1,224 @@
+########################################
+#                                      #
+#              Cracktils               #
+#                                      #
+########################################
+
+Token: ""
+devToken: ""
+Dev: false
+Management: ["775265751954096138"]
+GuildId: ""
+
+########################################
+#                                      #
+#            Embed Colors              #
+#                                      #
+########################################
+
+EmbedColors:
+    Default: "#FED922"
+    Error: "#f52c2c"
+    Success: "#3ac882"
+    noColor: "#2c2f33"
+
+########################################
+#                                      #
+#              Commands                #
+#                                      #
+########################################
+
+Commands:
+    ping:
+        cooldown: 2
+    8ball:
+        cooldown: 2
+    coinflip:
+        cooldown: 2
+    connect4:
+        cooldown: 60
+    gamestats:
+        cooldown: 5
+    math:
+        cooldown: 2
+    rockpaperscissors:
+        cooldown: 2
+    rolldice:
+        cooldown: 2
+    tictactoe:
+        cooldown: 30
+    help:
+        cooldown: 10
+    links:
+        cooldown: 30
+    avatar:
+        cooldown: 5
+    botinfo:
+        cooldown: 15
+    membercount:
+        cooldown: 5
+    reminder:
+        cooldown: 30
+    report:
+        cooldown: 10
+    roleinfo:
+        cooldown: 5
+    serverinfo:
+        cooldown: 10
+    suggest:
+        cooldown: 60
+    userinfo:
+        cooldown: 5
+    status:
+        cooldown: 10
+
+########################################
+#                                      #
+#               Channels               #
+#                                      #
+########################################
+
+Channels:
+    General: ""
+    Announcements: ""
+    DefaultUpdates: ""
+    Reports: ""
+    Suggestions: ""
+
+########################################
+#                                      #
+#               Roles                  #
+#                                      #
+########################################
+
+Roles:
+    Admin: ""
+    JrAdmin: ""
+    Staff: ""
+    Member: ""
+
+########################################
+#                                      #
+#                LINKS                 #
+#                                      #
+########################################
+
+Links:
+    - label: "Rules"
+      url: "https://crackpixel.net/rules/"
+    - label: "Forums"
+      url: "https://crackpixel.net/forums/"
+    - label: "Punishment Appeals"
+      url: "https://crackpixel.net/appeals/"
+    - label: "Store"
+      url: "https://store.crackpixel.net"
+    - label: "Support"
+      url: "https://discord.gg/M3d9ECRYmw"
+
+########################################
+#                                      #
+#          SUGGESTIONS SYSTEM          #
+#                                      #
+########################################
+
+Suggestions:
+    Enabled: true
+    ManageSuggestionsRole: ""
+
+    Emojis:
+        # Upvote: "935036058662502411"
+        # Downvote: "935036058893164604"
+        Accept: "895265127299960832"
+        Deny: "895265014619987998"
+        Implemented: "🛠️"
+
+    Colors:
+        Accepted: "#25de1f"
+        Denied: "#f52c2c"
+        Implemented: "#fc9803"
+
+########################################
+#                                      #
+#           ACTIVITY CYCLING           #
+#                                      #
+########################################
+
+ActivityCycling:
+    Enabled: true
+    # Interval to change activity in seconds.
+    Interval: 5
+    # Activity types: 1 = Playing; 2 = Listening; 3 = Watching; 5 = Competing
+    # PlaceHolders: USERS = number of all users;
+    Default:
+        - type: 1
+          activity: "mc.crackpixel.net"
+    Activities:
+        - type: 1
+          activity: "mc.crackpixel.net"
+        - type: 3
+          activity: "chat"
+        - type: 5
+
+########################################
+#                                      #
+#               LOGGING                #
+#                                      #
+########################################
+
+Logging:
+    Enabled: true
+
+    messageDelete:
+        Enabled: true
+        # name/id
+        Channel: "logs"
+    messageDeleteBulk:
+        Enabled: true
+        Channel: "logs"
+    messageUpdate:
+        Enabled: true
+        Channel: "logs"
+    channelCreate:
+        Enabled: true
+        Channel: "logs"
+    channelDelete:
+        Enabled: true
+        Channel: "logs"
+    channelPinsUpdate:
+        Enabled: true
+        Channel: "logs"
+    channelUpdate:
+        Enabled: true
+        Channel: "logs"
+    guildMemberUpdate:
+        Enabled: true
+        Channel: "logs"
+    emojiCreate:
+        Enabled: true
+        Channel: "logs"
+    emojiDelete:
+        Enabled: true
+        Channel: "logs"
+    emojiUpdate:
+        Enabled: true
+        Channel: "logs"
+    roleCreate:
+        Enabled: true
+        Channel: "logs"
+    roleDelete:
+        Enabled: true
+        Channel: "logs"
+    roleUpdate:
+        Enabled: true
+        Channel: "logs"
+
+########################################
+#                                      #
+#                OTHER                 #
+#                                      #
+########################################
+
+Other:
+    Giveaways:
+        DiscordEmoji: ":tada:"
+        UnicodeEmoji: "🎉"
