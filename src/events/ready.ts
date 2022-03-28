@@ -1,4 +1,5 @@
 import { TextChannel } from "discord.js";
+import { OneWord } from "../lib/modules/OneWord";
 import { Cracktils } from "../lib/structures/Client";
 import { Event } from "../lib/structures/Event";
 
@@ -9,6 +10,7 @@ export default new Event("ready", async (client: Cracktils) => {
 	setActivity();
 	setInterval(() => checkReminders(), 5000);
 	setInterval(() => checkEndedGiveaways(), 60000);
+	new OneWord(client, "897528482303713320");
 
 	function consoleInfo() {
 		setTimeout(() => {

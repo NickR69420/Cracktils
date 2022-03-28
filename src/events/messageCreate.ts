@@ -41,12 +41,11 @@ export default new Event("messageCreate", async (message) => {
 
 	if (command && (message.author.bot || !message.content.toLowerCase().startsWith(prefix))) return;
 
-	const Cmd = await client.db.getCommand(command.name);
-	const module = await client.db.getModuleStatus(command.directory);
+	 const Cmd = await client.db.getCommand(command.name);
 
-	if (!(Cmd.enabled || module)) return;
+	if (!Cmd.enabled) return;
 
-	if (command && Cmd.enabled) {
+	if (command) {
 		if (!utils.hasRole(message.member, client.config.Roles.Staff) && message.channel.id === client.config.Channels.General) return;
 
 		if (command.managementOnly && !config.Management.includes(message.author.id)) return;
