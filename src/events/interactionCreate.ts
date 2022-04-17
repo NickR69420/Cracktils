@@ -160,40 +160,6 @@ export default new Event("interactionCreate", async (interaction) => {
 			utils,
 			lang,
 		});
-	} else if (interaction.isButton()) {
-		const msg = interaction.message as Message;
-		let embed = interaction.message.embeds[0] as MessageEmbed;
-
-		// if (interaction.customId.startsWith("suggestion-")) {
-		// 	const { SuggestReply } = lang.AdminModule.Commands;
-
-		// 	if (!utils.hasRole(interaction.member as GuildMember, client.config.Roles.JrAdmin, true, interaction.guild))
-		// 		return interaction.reply({ content: SuggestReply.Reply.NotAllowed, ephemeral: true });
-
-		// 	const status = interaction.customId.split("-")[1];
-
-		// 	const embed = interaction.message.embeds[0] as MessageEmbed;
-
-		// 	const description = utils
-		// 		.replaceText(SuggestReply.Reply.Description, "CONTENT", embed.description)
-		// 		.replace("ACTION", capitalize(status))
-		// 		.replace("USER", interaction.user.tag)
-		// 		.replace("REPLY", `> ${SuggestReply.Reply.Replies[status]}`);
-		// 	const footer = utils.replaceText(embed.footer.text, "Pending", capitalize(status));
-
-		// 	msg.edit({
-		// 		embeds: [embed.setDescription(description).setFooter({ text: footer }).setColor(client.config.Suggestions.Colors[status])],
-		// 		components: [],
-		// 	});
-		// }
-
-		switch (interaction.customId) {
-			case "upvote": {
-				embed.fields[0].value = `${parseInt(embed.fields[0].value) + 1}`;
-
-				msg.edit({ embeds: [embed] });
-			}
-		}
 	}
 });
 
