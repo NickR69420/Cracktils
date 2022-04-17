@@ -13,12 +13,14 @@ export default async (client: Cracktils) => {
 		const slash: iSlash = await client.utils.importFile(filePath);
 		if (!slash.name || !slash.description) return;
 
+		//const cmd = await client.db.getCommand(slash.name);
+
 		const split = filePath.split("/");
 		const directory = split[split.length - 2];
 
 		const prop = {
 			cooldown: client.config.Commands[slash.name]?.cooldown || 0,
-			enabled: (await client.db.getCommand(slash.name)).enabled || (await client.db.getModuleStatus(directory)),
+			//enabled: cmd.enabled,
 			defaultPermission: false,
 			directory,
 			...slash,
@@ -46,14 +48,14 @@ export default async (client: Cracktils) => {
 	});
 
 	client.on("ready", async () => {
-		setTimeout(async () => {
-			await registerSlash({
+		setTimeout(() => {
+			registerSlash({
 				client,
 				GuildId: client.config.GuildId,
 				commands: slashCommands,
 				reset: false,
 			});
-		}, 1000);
+		}, 5000);
 	});
 };
 

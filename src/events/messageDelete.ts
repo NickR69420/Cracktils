@@ -64,7 +64,7 @@ export default new Event("messageDelete", async (message) => {
 
 		const deleted = audit.entries.first();
 
-		if (!deleted) return null;
+		if (!deleted || deleted.target.id === message.author.id) return null;
 
 		return deleted.executor.id;
 	}

@@ -41,8 +41,8 @@ export interface configFile {
 		Enabled: boolean;
 		ManageSuggestionsRole: string;
 		Emojis: {
-			//Upvote: string;
-			//Downvote: string;
+			Upvote: string;
+			Downvote: string;
 			Accept: string;
 			Deny: string;
 			Implemented: string;

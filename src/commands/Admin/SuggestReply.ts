@@ -1,4 +1,4 @@
-import { Message } from "discord.js";
+import { EmbedFieldData, Message } from "discord.js";
 import { Command } from "../../lib/structures/Command";
 
 export default new Command({
@@ -43,14 +43,21 @@ export default new Command({
 		if (embed.hexColor !== client.config.EmbedColors.noColor)
 			return utils.iReply(message, { embeds: [client.embed.globalErr({ message: SuggestReply.AlreadyReplied })] });
 
+		const upvotes = msg.reactions.cache.get(Suggestions.Emojis.Upvote)?.count.toString() ?? "Unknown";
+		const downvotes = msg.reactions.cache.get(Suggestions.Emojis.Downvote)?.count.toString() ?? "Unknown";
+
 		const description = utils
 			.replaceText(SuggestReply.Reply.Description, "CONTENT", embed.description)
 			.replace("ACTION", capitalize(status))
 			.replace("USER", message.author.tag)
 			.replace("REPLY", `> ${reply ? reply : SuggestReply.Reply.Replies[status]}`);
 		const footer = utils.replaceText(embed.footer.text, "Pending", capitalize(status));
+		const fields: EmbedFieldData = { name: "Statistics", value: `**Upvotes:** \`${upvotes}\`\n**Downvotes:** \`${downvotes}\`` };
 
-		msg.edit({ embeds: [embed.setDescription(description).setFooter({ text: footer }).setColor(Suggestions.Colors[status])], components: [] });
+		await msg.edit({
+			embeds: [embed.setDescription(description).setFooter({ text: footer }).setColor(Suggestions.Colors[status]).addFields(fields)],
+			components: [],
+		});
 
 		utils.iReply(message, { embeds: [client.embed.globalSuccess({ message: SuggestReply.Replied })] });
 	},

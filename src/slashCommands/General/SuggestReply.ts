@@ -1,4 +1,4 @@
-import { Message } from "discord.js";
+import { EmbedFieldData, Message } from "discord.js";
 import { SlashCommand } from "../../lib/structures/SlashCommand";
 
 export default new SlashCommand({
@@ -50,7 +50,8 @@ export default new SlashCommand({
 		if (!utils.hasRole(interaction.member, client.config.Roles.JrAdmin, true, interaction.guild))
 			return interaction.reply({ content: SuggestReply.Reply.NotAllowed, ephemeral: true });
 
-		if (!channel || !Suggestions.Enabled) return interaction.reply({ embeds: [client.embed.globalErr({ message: SuggestReply.NotSetup })] });
+		if (!channel || !Suggestions.Enabled)
+			return interaction.reply({ embeds: [client.embed.globalErr({ message: SuggestReply.NotSetup })], ephemeral: true });
 
 		const msg = (await channel.messages.fetch(id).catch(() => {
 			interaction.reply({ embeds: [client.embed.globalErr({ message: SuggestReply.InvalidID })], ephemeral: true });
@@ -59,27 +60,19 @@ export default new SlashCommand({
 
 		if (!msg.editable) return interaction.reply({ embeds: [client.embed.globalErr({ message: SuggestReply.InvalidID })], ephemeral: true });
 
-		const allowedStatuses = ["accepted", "denied", "implemented"];
-		if (!allowedStatuses.includes(status))
-			return interaction.reply({
-				embeds: [
-					client.embed.globalErr({
-						message: utils.replaceText(SuggestReply.InvalidStatus, "STATUSES", allowedStatuses.map((a) => `\`${a}\``).join(", ")),
-					}),
-				],
-				ephemeral: true,
-			});
-
 		const embed = msg.embeds[0];
 
 		if (embed.hexColor !== client.config.EmbedColors.noColor)
-			return interaction.reply({ embeds: [client.embed.globalErr({ message: SuggestReply.AlreadyReplied })] });
+			return interaction.reply({ embeds: [client.embed.globalErr({ message: SuggestReply.AlreadyReplied })], ephemeral: true });
 
+		const upvotes = msg.reactions.cache.get(Suggestions.Emojis.Upvote)?.count.toString() ?? "Unknown";
+		const downvotes = msg.reactions.cache.get(Suggestions.Emojis.Downvote)?.count.toString() ?? "Unknown";
+		const stats = `\n\n**Statistics**\n**Upvotes:** \`${upvotes}\`\n**Downvotes:** \`${downvotes}\``;
 		const description = utils
 			.replaceText(SuggestReply.Reply.Description, "CONTENT", embed.description)
 			.replace("ACTION", capitalize(status))
 			.replace("USER", interaction.user.tag)
-			.replace("REPLY", `> ${reply ? reply : SuggestReply.Reply.Replies[status]}`);
+			.replace("REPLY", `> ${reply ? reply : SuggestReply.Reply.Replies[status]}`) + stats;
 		const footer = utils.replaceText(embed.footer.text, "Pending", capitalize(status));
 
 		await msg.edit({

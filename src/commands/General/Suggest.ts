@@ -27,14 +27,19 @@ export default new Command({
 
 		utils.iReply(message, { embeds: [client.embed.globalSuccess({ title: Suggest.Sent.Title, message: Suggest.Sent.Description })] });
 
+		// const row = new MessageActionRow().addComponents(
+		// 	new MessageButton().setCustomId("suggestion-accepted").setEmoji(Suggestions.Emojis.Accept).setStyle("SUCCESS"),
+		// 	new MessageButton().setCustomId("suggestion-denied").setEmoji(Suggestions.Emojis.Deny).setStyle("DANGER"),
+		// 	new MessageButton().setCustomId("suggestion-implemented").setEmoji(Suggestions.Emojis.Implemented).setStyle("SECONDARY")
+		// );
+
 		const row = new MessageActionRow().addComponents(
-			new MessageButton().setCustomId("suggestion-accepted").setEmoji(Suggestions.Emojis.Accept).setStyle("SUCCESS"),
-			new MessageButton().setCustomId("suggestion-denied").setEmoji(Suggestions.Emojis.Deny).setStyle("DANGER"),
-			new MessageButton().setCustomId("suggestion-implemented").setEmoji(Suggestions.Emojis.Implemented).setStyle("SECONDARY")
+			new MessageButton().setCustomId("upvote").setEmoji(Suggestions.Emojis.Upvote).setStyle("SECONDARY"),
+			new MessageButton().setCustomId("downvote").setEmoji(Suggestions.Emojis.Downvote).setStyle("SECONDARY")
 		);
 
 		await m.edit({ embeds: [m.embeds[0].setFooter({ text: utils.replaceText(Suggest.Pending.Footer, "id", m.id) })], components: [row] });
-		//await m.react(Suggestions.Emojis.Upvote);
-		//await m.react(Suggestions.Emojis.Downvote);
+		await m.react(Suggestions.Emojis.Upvote);
+		await m.react(Suggestions.Emojis.Downvote);
 	},
 });
