@@ -45,6 +45,9 @@
     "hastebin": "^0.2.1",
     "js-yaml": "^4.1.0",
     "ms": "^3.0.0-canary.1",
-    "pretty-ms": "^7.0.1"
+    "mysql2": "^2.3.3",
+    "pretty-ms": "^7.0.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.6"
   }
 }

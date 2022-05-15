@@ -69,7 +69,7 @@ export async function registerSlash({ client, GuildId, reset, commands }: iRegis
 	}
 
 	if (commands) {
-		await mainGuild?.commands.set(commands).then(async (cmd) => {
+		await mainGuild.commands.set(commands).then(async (cmd) => {
 			const getRoles = (cmdName: string) => {
 				const perms = client.slashCommands.find((c) => c.name === cmdName)?.userPerms;
 

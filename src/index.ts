@@ -4,6 +4,7 @@ if (+process.version.slice(1).split("v")[0] < 16.6) {
 }
 
 import { Cracktils } from "./lib/structures/Client";
+import "reflect-metadata";
 
 export const client = new Cracktils({
 	intents: 32767,

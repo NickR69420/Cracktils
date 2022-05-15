@@ -17,6 +17,16 @@ export interface configFile {
 		noColor: ColorResolvable;
 	};
 
+	litebans: {
+		host: string;
+		port: number;
+		user: string;
+		password: string;
+		database: string;
+	};
+
+	proof_category: string;
+
 	Commands: {};
 
 	Channels: {
