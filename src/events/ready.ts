@@ -8,8 +8,8 @@ export default new Event("ready", async (client: Cracktils) => {
 
 	consoleInfo();
 	setActivity();
-	setInterval(() => checkReminders(), 5000);
-	setInterval(() => checkEndedGiveaways(), 60000);
+	//setInterval(() => checkReminders(), 5000);
+	//setInterval(() => checkEndedGiveaways(), 60000);
 	new OneWord(client, "897528482303713320");
 
 	function consoleInfo() {
@@ -34,31 +34,31 @@ export default new Event("ready", async (client: Cracktils) => {
 		);
 	}
 
-	async function checkReminders() {
-		const { Reminder } = client.lang.GeneralModule.Commands;
-		const reminders = (await client.prisma.reminder.findMany()).filter((r) => r.expires.getTime() <= Date.now());
+	// async function checkReminders() {
+	// 	const { Reminder } = client.lang.GeneralModule.Commands;
+	// 	const reminders = (await client.prisma.reminder.findMany()).filter((r) => r.expires.getTime() <= Date.now());
 
-		for (const r of reminders) {
-			const guild = await client.guilds.fetch(r.guildId);
-			const channel = (await guild.channels.fetch(r.channelId)) as TextChannel;
-			const user = await guild.members.fetch(r.userId);
+	// 	for (const r of reminders) {
+	// 		const guild = await client.guilds.fetch(r.guildId);
+	// 		const channel = (await guild.channels.fetch(r.channelId)) as TextChannel;
+	// 		const user = await guild.members.fetch(r.userId);
 
-			if (!guild || !channel || !user) break;
+	// 		if (!guild || !channel || !user) break;
 
-			const reminder = client.embed.create({
-				Title: Reminder.Reminder.Title,
-				Description: r.reason
-					? utils.replaceText(Reminder.Reminder.Descriptions[0], "REASON", r.reason)
-					: utils.replaceText(Reminder.Reminder.Descriptions[1], "TIME", r.time),
-				Color: "RANDOM",
-			});
+	// 		const reminder = client.embed.create({
+	// 			Title: Reminder.Reminder.Title,
+	// 			Description: r.reason
+	// 				? utils.replaceText(Reminder.Reminder.Descriptions[0], "REASON", r.reason)
+	// 				: utils.replaceText(Reminder.Reminder.Descriptions[1], "TIME", r.time),
+	// 			Color: "RANDOM",
+	// 		});
 
-			channel.send({ content: `<@${user.id}>`, embeds: [reminder] }).catch(() => {});
-			user.send({ embeds: [reminder] }).catch(() => {});
+	// 		channel.send({ content: `<@${user.id}>`, embeds: [reminder] }).catch(() => {});
+	// 		user.send({ embeds: [reminder] }).catch(() => {});
 
-			await client.prisma.reminder.delete({ where: { id: r.id } });
-		}
-	}
+	// 		await client.prisma.reminder.delete({ where: { id: r.id } });
+	// 	}
+	// }
 
 	function setActivity() {
 		const { ActivityCycling } = config;

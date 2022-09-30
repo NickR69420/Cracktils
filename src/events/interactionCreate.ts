@@ -18,16 +18,16 @@ export default new Event("interactionCreate", async (interaction) => {
 				ephemeral: true,
 			});
 		}
-		const cmd = await client.db.getCommand(slash.name);
+		// const cmd = await client.db.getCommand(slash.name);
 
-		if (!cmd.enabled) {
-			return interaction.reply({
-				content: lang.GlobalErrors.disabledCommand,
-				ephemeral: true,
-			});
-		}
+		// if (!cmd.enabled) {
+		// 	return interaction.reply({
+		// 		content: lang.GlobalErrors.disabledCommand,
+		// 		ephemeral: true,
+		// 	});
+		// }
 
-		if (slash && cmd.enabled) {
+		if (slash) {
 			if (slash.managementOnly && !client.config.Management.includes(interaction.user.id))
 				return interaction.reply({
 					embeds: [

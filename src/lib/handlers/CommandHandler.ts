@@ -14,7 +14,8 @@ export default async (client: Cracktils) => {
 		const directory = split[split.length - 2];
 		const prop = {
 			cooldown: client.config.Commands[command.name]?.cooldown || 0,
-			enabled: (await client.db.getCommand(command.name)).enabled || (await client.db.getModuleStatus(directory)),
+			//enabled: (await client.db.getCommand(command.name)).enabled || (await client.db.getModuleStatus(directory)),
+			enabled: true,
 			directory,
 			filePath,
 			...command,

@@ -1,5 +1,5 @@
 import { Event } from "../lib/structures/Event";
-import { NonThreadGuildBasedChannel, OverwriteType } from "discord.js";
+import { NonThreadGuildBasedChannel, OverwriteType, TextChannel } from "discord.js";
 import { client } from "../index";
 import { channelMention } from "@discordjs/builders";
 import { Permissions } from "discord-api-types";
@@ -69,13 +69,13 @@ export default new Event("channelUpdate", (oldChannel: NonThreadGuildBasedChanne
 		});
 	}
 
-	if (oldChannel.isText() && newChannel.isText() && oldChannel.topic !== newChannel.topic) {
+	if (oldChannel.isText() && newChannel.isText() && (oldChannel as TextChannel).topic !== (newChannel as TextChannel).topic) {
 		client.utils.log("channelUpdate", {
 			Title: ChannelUpdated.Title,
 			Fields: [
 				{ name: ChannelUpdated.TopicUpdated.Fields[0], value: channel },
-				{ name: ChannelUpdated.TopicUpdated.Fields[1], value: oldChannel.topic ? oldChannel.topic : "None." },
-				{ name: ChannelUpdated.TopicUpdated.Fields[2], value: newChannel.topic ? newChannel.topic : "None." },
+				{ name: ChannelUpdated.TopicUpdated.Fields[1], value: (oldChannel as TextChannel).topic ? (oldChannel as TextChannel).topic : "None." },
+				{ name: ChannelUpdated.TopicUpdated.Fields[2], value: (newChannel as TextChannel).topic ? (newChannel as TextChannel).topic : "None." },
 			],
 			Timestamp: true,
 			Color: "BLUE",

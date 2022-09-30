@@ -47,8 +47,8 @@ export default new Command({
 				} else if (i == 4) {
 					channel =
 						msg.content == "here"
-							? msg.channel
-							: msg.mentions.channels.first() || (utils.findChannel(msg.content, message.guild) as TextBasedChannel);
+							?( msg.channel as TextBasedChannel)
+							:( msg.mentions.channels.first()as TextBasedChannel) || (utils.findChannel(msg.content, message.guild) as TextBasedChannel);
 
 					if (!channel) {
 						const m = await message.channel.send({ embeds: [client.embed.globalErr({ message: Gcreate.InvalidChannel })] });
