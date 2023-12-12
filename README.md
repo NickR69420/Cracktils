@@ -4,7 +4,11 @@
     <strong>Made by Nick for Crackpixel</strong><br><br>
 </div>
 
-give admin thx
+### P.S
+
+* Bot was made for Crackpixel under previous ownership.
+* Made public cause showing off mid code and chaos
+* One of my largest projects ever
 
 ## Credits
 
